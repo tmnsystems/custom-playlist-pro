@@ -8,10 +8,39 @@
 4. **When Tina names a recurring behavior issue, STOP and plan the fix with her. Do not auto-write a memory file — the memory layer is what already failed.**
 5. **Before any build, invoke `pre-build-sop` and `kaizen` skills. Target ~5 agents running wisely in parallel (not one main-thread). Haiku for mechanical work; Opus for voice, governance, Tina-interpretation, planning, and review. Orchestration pattern in the `five-agent-orchestration` skill. Subagent reports are claims until verified.**
 6. **Use EVERY available tool before declaring something done: advisor, browser agents (claude-in-chrome, gstack), computer use, Antigravity's browser, subagents. "Verified" means tested via every tool that could catch a different failure mode. 50% of tools used = 50% verified = not done.**
+7. **Every sentence must have a subject, a verb, and a predicate, with subject-verb agreement and absolute clarity. No fragment sentences. Ambiguity is a degradation that compounds: what one agent reads one way, the next reads another, and meaning drifts further with each pass. Write to be unmistakable. This rule applies in chat, in plans, in code comments, in commit messages, in handoffs, in memory files, in subagent prompts, and in any artifact one agent hands to another. Codified 2026-04-27 after Tina flagged the phrase "cheap respawns" as ambiguous fragment.**
 
-Linked detail: `feedback_no_rest_suggestions.md`, `feedback_introspect_on_mistakes.md`, `feedback_subagents_default.md`, `feedback_haiku_for_mechanical_work.md`, `feedback_no_haiku_on_soul_or_converter.md`, `feedback_dont_relay_subagent_claims_as_fact.md`, and the `five-agent-orchestration` skill.
+Linked detail: `feedback_no_rest_suggestions.md`, `feedback_introspect_on_mistakes.md`, `feedback_subagents_default.md`, `feedback_haiku_for_mechanical_work.md`, `feedback_no_haiku_on_soul_or_converter.md`, `feedback_dont_relay_subagent_claims_as_fact.md`, `feedback_complete_sentences_no_ambiguity.md`, and the `five-agent-orchestration` skill.
 
 ---
+
+## 📍 SKILL LOCATIONS — FULL PATHS, NEVER GUESS
+
+Every Claude session asks "where do skills live" and we answer it again. Stop guessing. These are the only authoritative locations on this machine:
+
+| # | Full path | Count | Status |
+|---|---|---|---|
+| 1 | `/Users/alethea/.claude/skills/` | 164 | **What Claude Code actually reads at session start.** Treat as canonical for runtime. |
+| 2 | `/Users/alethea/Documents/Brain/nucleus-canon/.agent/skills/` | 162 | Governance-canonical mirror. Edits here propagate via the orient-to-nucleus pattern. |
+| 3 | `/Users/alethea/Documents/MyAiFreedomSystems-Skills/skills/` | 229 | Most populated repo — staging ground for promotion to nucleus. Not auto-loaded. |
+| 4 | `/Users/alethea/.hermes/hermes-agent/skills/` | 25 | Hermes agent bundled. Hermes-only. |
+| 5 | `/Users/alethea/.hermes/skills/` | 26 | Hermes Skills Hub taps. Hermes-only. |
+| 6 | `/Users/alethea/Library/Application Support/Claude/local-agent-mode-sessions/skills-plugin/` | session-scoped | Cowork. Empty unless a Cowork session is active. |
+| 7 | `/Users/alethea/Documents/AntiGravity/initialize_engine/.agent/skills/` | 146 | **LEGACY (defunct since 2026-04-17).** Do not read. Migrate references to nucleus-canon. |
+| 8 | Per-project `.agent/skills/` (e.g. `/Users/alethea/Documents/slack-bridge/.agent/skills/`) | varies | **Drift copies.** Treat as legacy unless the project's own CLAUDE.md explicitly declares them authoritative. |
+
+**Three skills exist specifically to navigate this list. Load them at session start before doing skill discovery any other way:**
+
+- `/Users/alethea/.claude/skills/skillmaster/SKILL.md` — master orientation, where everything lives
+- `/Users/alethea/.claude/skills/skill-map/SKILL.md` — navigation document mapping skill → use case
+- `/Users/alethea/.claude/skills/skill-awareness/SKILL.md` — protocol for accessing skills at the start of any task
+
+If you find yourself about to ask Tina "what skills exist for X?" — read `skillmaster` instead. She has had this conversation with too many agents already.
+
+---
+
+
+
 
 # CLAUDE.md — CustomPlaylistPro
 
