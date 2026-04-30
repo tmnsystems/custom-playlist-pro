@@ -9,6 +9,7 @@
 5. **Before any build, invoke `pre-build-sop` and `kaizen` skills. Target ~5 agents running wisely in parallel (not one main-thread). Haiku for mechanical work; Opus for voice, governance, Tina-interpretation, planning, and review. Orchestration pattern in the `five-agent-orchestration` skill. Subagent reports are claims until verified.**
 6. **Use EVERY available tool before declaring something done: advisor, browser agents (claude-in-chrome, gstack), computer use, Antigravity's browser, subagents. "Verified" means tested via every tool that could catch a different failure mode. 50% of tools used = 50% verified = not done.**
 7. **Every sentence must have a subject, a verb, and a predicate, with subject-verb agreement and absolute clarity. No fragment sentences. Ambiguity is a degradation that compounds: what one agent reads one way, the next reads another, and meaning drifts further with each pass. Write to be unmistakable. This rule applies in chat, in plans, in code comments, in commit messages, in handoffs, in memory files, in subagent prompts, and in any artifact one agent hands to another. Codified 2026-04-27 after Tina flagged the phrase "cheap respawns" as ambiguous fragment.**
+8. **Append a one-line read receipt to `/Users/alethea/Documents/Brain/05-Bridge/nucleus-read-receipts.log` every time you read a nucleus-canon file.** Format: `ISO8601-timestamp | agent-model | session-id | absolute-file-path`. Append-only with `>>`. This makes parallel-agent race conditions on nucleus reads observable when reconciling divergent agent decisions. Codified 2026-04-28 after Tina hit a real race-condition collision.
 
 Linked detail: `feedback_no_rest_suggestions.md`, `feedback_introspect_on_mistakes.md`, `feedback_subagents_default.md`, `feedback_haiku_for_mechanical_work.md`, `feedback_no_haiku_on_soul_or_converter.md`, `feedback_dont_relay_subagent_claims_as_fact.md`, `feedback_complete_sentences_no_ambiguity.md`, and the `five-agent-orchestration` skill.
 
@@ -18,7 +19,7 @@ Linked detail: `feedback_no_rest_suggestions.md`, `feedback_introspect_on_mistak
 
 Every Claude session asks "where do skills live" and we answer it again. Stop guessing. These are the only authoritative locations on this machine:
 
-| # | Full path | Count | Status |
+| # | Full path | Count (snapshot 2026-04-28) | Status |
 |---|---|---|---|
 | 1 | `/Users/alethea/.claude/skills/` | 164 | **What Claude Code actually reads at session start.** Treat as canonical for runtime. |
 | 2 | `/Users/alethea/Documents/Brain/nucleus-canon/.agent/skills/` | 162 | Governance-canonical mirror. Edits here propagate via the orient-to-nucleus pattern. |
@@ -70,14 +71,17 @@ Read the files below in order before producing any response to the user. Do not 
 4. **Kaizen skill** — `~/Documents/Brain/nucleus-canon/.agent/skills/kaizen/SKILL.md`
    *(Apply Kaizen to every session. Leave every artifact better than found.)*
 
-5. **Pre-build-sop skill** — `~/Documents/Brain/nucleus-canon/.agent/skills/pre-build-sop/SKILL.md`
+5. **SkillMaster orientation** — `/Users/alethea/.claude/skills/skillmaster/SKILL.md`
+   *(Master orientation: where every skill lives across all environments, how the sync works, project map. Load this so you do not have to ask Tina where things are.)*
+
+6. **Pre-build-sop skill** — `~/Documents/Brain/nucleus-canon/.agent/skills/pre-build-sop/SKILL.md`
    *(Invoke this skill before building anything — code, files, features, schemas, pipelines.)*
 
-6. **This project's most recent handoff** — `/Users/alethea/Documents/CustomPlaylistPro/handoffs/` (read the most recent dated file)
+7. **This project's most recent handoff** — `/Users/alethea/Documents/CustomPlaylistPro/handoffs/` (read the most recent dated file)
 
-7. **This project's session ledger** — `~/Documents/CustomPlaylistPro/logs/customplaylistpro/00_SESSION_LEDGER.md`
+8. **This project's session ledger** — `~/Documents/CustomPlaylistPro/logs/customplaylistpro/00_SESSION_LEDGER.md`
 
-8. **Memory index** — `~/.claude/projects/-Users-alethea/memory/MEMORY.md`
+9. **Memory index** — `~/.claude/projects/-Users-alethea/memory/MEMORY.md`
 
 ### Session Start Response Pattern
 
